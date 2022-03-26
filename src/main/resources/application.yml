@@ -1,0 +1,27 @@
+server:
+  tomcat:
+    uri-encoding: utf-8
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+  servlet:
+    encoding:
+      force: true
+      enabled: true
+      charset: UTF-8
+
+
+    multipart:
+      location: D:\photo\
+      max-file-size: 5MB
+      max-request-size: 20MB
+
+
+

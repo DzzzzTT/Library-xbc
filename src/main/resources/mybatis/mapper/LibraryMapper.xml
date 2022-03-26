@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.xbc1913041334library.xbc1913041334Dao.ILibraryDao">
+    <select id="getLibrary"
+            parameterType="Integer"
+            resultType="com.example.xbc1913041334library.xbc1913041334Pojo.Library">
+        select id as xbc1913041334Id,name as xbc1913041334Name,price as xbc1913041334Price,photo
+        from t_library
+        where id=#{xbc1913041334Id}
+    </select>
+
+    <select id="showAllLibrary"
+            resultType="com.example.xbc1913041334library.xbc1913041334Pojo.Library">
+        select id as xbc1913041334Id,name as xbc1913041334Name,price as xbc1913041334Price,photo
+        from t_library
+    </select>
+
+    <select id="findLibrary"
+            resultType="com.example.xbc1913041334library.xbc1913041334Pojo.Library">
+        select id as xbc1913041334Id,name as xbc1913041334Name,price as xbc1913041334Price,photo
+        from t_library
+        where name like concat('%',#{xbc1913041334Name},'%')
+            and price =#{xbc1913041334Price}
+    </select>
+
+    <insert id="addLibrary"
+            parameterType="com.example.xbc1913041334library.xbc1913041334Pojo.Library"
+            useGeneratedKeys="true"
+            keyProperty="id">
+        insert into t_library(id,name,price,photo) values(#{xbc1913041334Id},#{xbc1913041334Name},#{xbc1913041334Price},#{photo})
+    </insert>
+
+    <insert id="insertPhoto"
+            parameterType="com.example.xbc1913041334library.xbc1913041334Pojo.Library"
+            useGeneratedKeys="true"
+            keyProperty="id">
+        insert into t_library(id,photo) vlaues(#{xbc1913041334Id},#{photo})
+    </insert>
+
+    <update id="updateLibrary" parameterType="com.example.xbc1913041334library.xbc1913041334Pojo.Library">
+        update t_library set id=#{xbc1913041334Id},name=#{xbc1913041334Name},price=#{xbc1913041334Price},photo=#{photo} where id=#{xbc1913041334Id}
+    </update>
+
+    <delete id="deleteLibrary" parameterType="Integer">
+        delete from t_library where id=#{xbc1913041334Name}
+    </delete>
+</mapper>
